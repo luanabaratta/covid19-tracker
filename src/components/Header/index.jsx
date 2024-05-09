@@ -8,7 +8,7 @@ import flag from '../../assets/img/flag.png'
 const Header = () => (
     <header id="main-header">
       <div className="container">
-        <h1>Covid-19 Brazil API <img className="flag" src={flag} alt=""/></h1>
+        <Link className="nav" to={'/'}><h1>Covid-19 Brazil API <img className="flag" src={flag} alt=""/></h1></Link>
         <div className="box-nav">
           <Link className="nav" to={'/'}> <FontAwesomeIcon icon={faMap} /> Estados do Brasil</Link>
           <Link className="nav" to={'/countries'}> <FontAwesomeIcon icon={faGlobe} /> <span>Mundo</span></Link>
