@@ -15,7 +15,7 @@ img {
   padding: 120px 20px 50px;
 }
 .country-list article{
-  background: rgb(225, 225, 225);
+  background: #F9F9F9;
   border-radius: 10px;
   width: 100%;
   max-width: 290px;
@@ -73,15 +73,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: center
-}
-
-.data span {
-  display: flex;
-  justify-content: center;
-}
-
-#faclock {
-  padding-right: 10px;
 }
 
 @media screen and (max-width: 992px) {

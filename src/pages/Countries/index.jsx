@@ -49,7 +49,7 @@ function Countries() {
               </div>
               <div className="data">
                 <span>
-                  <FontAwesomeIcon id="faclock" icon={faClock}/> {moment(country.updated_at).format('llll')}
+                  <FontAwesomeIcon className="faclock" icon={faClock}/> {moment(country.updated_at).format('llll')}
                 </span>
               </div>
             </article>
