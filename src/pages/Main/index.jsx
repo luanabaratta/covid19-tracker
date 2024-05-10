@@ -6,7 +6,7 @@ import moment from 'moment';
 import api from '../../api/api';
 import './styles.css';
 
-function Main() {
+const Main = () => {
   const [brazilianState, setBrazilianState] = useState([]);
 
   useEffect(() => {
@@ -24,35 +24,38 @@ function Main() {
   };
 
   return (
-      <div className="region-list">
-        {brazilianState.sort((a, b) => a.state.localeCompare(b.state)).map(state => (
-            <article key={state.uid}>
-              <Link to={`/brazil/uf/${state.uf}`} title={state.state}>
-                <div className="box-head">
-                  <img src={`https://devarthurribeiro.github.io/covid19-brazil-api/static/flags/${state.uf}.png`} alt="" />
-                  <h4>{state.state} - {state.uf}</h4>
+        <div className="region-list">
+          {brazilianState.sort((a, b) => a.state.localeCompare(b.state)).map(state => (
+              <article key={state.uid}>
+
+                <Link to={`/brazil/uf/${state.uf}`} title={state.state}>
+                  <div className="box-head">
+                    <img src={`https://devarthurribeiro.github.io/covid19-brazil-api/static/flags/${state.uf}.png`}
+                         alt=""/>
+                    <h4>{state.state} - {state.uf}</h4>
+                  </div>
+                  <div className="box-data">
+                    <p className="cases">
+                      <FontAwesomeIcon icon={faCheck}/>
+                      <strong>Casos</strong>{state.cases}
+                    </p>
+                    <p className="suspect">
+                      <FontAwesomeIcon icon={faExclamationTriangle}/>
+                      <strong>Suspeitas</strong>{state.suspects}
+                    </p>
+                    <p className="death">
+                      <FontAwesomeIcon icon={faCross}/>
+                      <strong>Mortes</strong>{state.deaths}
+                    </p>
+                  </div>
+                </Link>
+                <div className="data">
+                <span><FontAwesomeIcon icon={faClock}
+                                       className="faclock"/> {moment(brazilianState.datetime).format('llll')}</span>
                 </div>
-                <div className="box-data">
-                  <p className="cases">
-                    <FontAwesomeIcon icon={faCheck} />
-                    <strong>Casos</strong>{state.cases}
-                  </p>
-                  <p className="suspect">
-                    <FontAwesomeIcon icon={faExclamationTriangle} />
-                    <strong>Suspeitas</strong>{state.suspects}
-                  </p>
-                  <p className="death">
-                    <FontAwesomeIcon icon={faCross} />
-                    <strong>Mortes</strong>{state.deaths}
-                  </p>
-                </div>
-              </Link>
-              <div className="data">
-                <span><FontAwesomeIcon icon={faClock} className="faclock" /> {moment(brazilianState.datetime).format('llll')}</span>
-              </div>
-            </article>
-        ))}
-      </div>
+              </article>
+          ))}
+        </div>
   );
 }
 

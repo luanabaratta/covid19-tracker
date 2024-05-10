@@ -13,8 +13,8 @@ const Layout = () => {
         <Footer />
       </>
 
-  )
-}
+  );
+};
 
 const router = createBrowserRouter([
   {

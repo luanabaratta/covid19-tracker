@@ -14,7 +14,6 @@ const Header = () => (
           <Link className="nav" to={'/countries'}> <FontAwesomeIcon icon={faGlobe} /> <span>Mundo</span></Link>
         </div>
       </div>
-
     </header>
 );
 

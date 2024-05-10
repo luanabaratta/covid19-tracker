@@ -6,7 +6,7 @@ import 'moment/locale/pt-br';
 import moment from 'moment';
 import './styles.css';
 
-function Countries() {
+const Countries = () => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {

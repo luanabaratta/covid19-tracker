@@ -3,22 +3,20 @@ import api from '../../api/api';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCheck, faExclamationTriangle, faCross, faClock} from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
+import { useParams } from 'react-router-dom';
 import './styles.css';
 
-const UF = ({match}) => {
-  const [brazilianState, setBrazilianState] = useState({});
+  const UF = () => {
+    const [brazilianState, setBrazilianState] = useState({});
+    const { uf } = useParams();
 
-  useEffect(() => {
-    const fetchStateData = async () => {
-      const {uf} = match.params;
-      const response = await api.get(`/brazil/uf/${uf}`);
-      setBrazilianState(response.data);
-    }
-    if (match && match.params) {
+    useEffect(() => {
+      const fetchStateData = async () => {
+        const response = await api.get(uf,`/brazil/uf/${uf}`);
+        setBrazilianState(response.data);
+      }
       fetchStateData();
-    }
-  }, [match]);
-
+    },[uf]);
 
   return (
       <div className="detail">
